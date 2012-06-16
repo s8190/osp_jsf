@@ -4,14 +4,18 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/templates/default.xhtml">
-	
+	 <head>
+	        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	        <link href="./css/default.css" rel="stylesheet" type="text/css" />
+	       
+	    </head>
 	<ui:define name="content">
 	
     <h:form>
     
-     <h:dataTable value="#{personBean.allPersons}" var="item">
-      <f:facet name="header">#{msg.personAllLabel}</f:facet>
-      
+     <h:dataTable value="#{personBean.personSearch}" var="item" border="0" cellpadding="0" cellspacing="0" styleClass="tableList">
+        <f:facet name="header">#{msg.personSearchResultLabel}</f:facet>
+             
       <h:column>
         <f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
         #{item.firstName}
@@ -29,9 +33,8 @@
       
       <h:column>
         <f:facet name="header">#{msg.action}</f:facet>
-         
-        <h:commandLink value="#{msg.actionEdit}" action="#{personBean.editPerson}"/>
         <h:commandLink value="#{msg.actionDelete}" action="#{personBean.deletePerson}"/>
+        <h:commandLink value="#{msg.actionEdit}" action="#{personBean.editPerson}"/>
       </h:column>
       
      </h:dataTable>

@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo "************ UNDEPLOYING *******************"
-asadmin undeploy jsfdemo
+asadmin undeploy osp_jsf
 echo "************ BUILDING **********************"
 mvn package
 echo "************ DEPLOYING *********************"
-asadmin deploy target/jsfdemo.war
+asadmin deploy target/osp_jsf.war

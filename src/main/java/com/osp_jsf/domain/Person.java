@@ -1,7 +1,9 @@
-package com.example.jsfdemo.domain;
+package com.osp_jsf.domain;
 
 import java.util.Date;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
@@ -57,6 +59,7 @@ public class Person {
 		this.dateOfBirth = dateOfBirth;
 	}
 	
+	@DecimalMin(value = "0")
 	public double getWeight() {
 		return weight;
 	}

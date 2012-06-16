@@ -1,11 +1,11 @@
-package com.example.jsfdemo.service;
+package com.osp_jsf.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import com.example.jsfdemo.domain.Person;
+import com.osp_jsf.domain.Person;
 
 @ApplicationScoped
 public class PersonManager {
@@ -40,5 +40,15 @@ public class PersonManager {
 
 	public List<Person> getAllPersons() {
 		return db;
+	}
+
+	public List<Person> searchPerson(Person c) {
+			List<Person> cl = new ArrayList<Person>();
+			for (Person p : db) {
+				if (c.getPin().equals(p.getPin()) || c.getFirstName().equals(p.getFirstName())) {
+				cl.add(p);
+				}
+			}
+			return cl;
 	}
 }

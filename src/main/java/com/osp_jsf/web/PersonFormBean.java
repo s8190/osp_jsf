@@ -1,4 +1,4 @@
-package com.example.jsfdemo.web;
+package com.osp_jsf.web;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -16,8 +16,9 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.example.jsfdemo.domain.Person;
-import com.example.jsfdemo.service.PersonManager;
+
+import com.osp_jsf.domain.Person;
+import com.osp_jsf.service.PersonManager;
 
 @SessionScoped
 @Named("personBean")
@@ -26,9 +27,18 @@ public class PersonFormBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Person person = new Person();
+	private String text = null;
+	
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
 
 	private ListDataModel<Person> persons = new ListDataModel<Person>();
-
+	
 	@Inject
 	private PersonManager pm;
 
@@ -44,13 +54,39 @@ public class PersonFormBean implements Serializable {
 		persons.setWrappedData(pm.getAllPersons());
 		return persons;
 	}
+	
+	public ListDataModel<Person> getPersonSearch() {
+		persons.setWrappedData(pm.searchPerson(person));
+		return persons;
+	}
 
 	// Actions
 	public String addPerson() {
 		pm.addPerson(person);
+		return "showDetalis";
+		//return null;
+	}
+	public String showPerson() {
 		return "showPersons";
 		//return null;
 	}
+	public String Back() {
+		pm.deletePerson(person);
+		return "addSimple";
+		//return null;
+	}
+	public String searchPerson() {
+		person.setPin(text);
+		person.setFirstName(text);
+		return "searchResult";
+		 }
+	
+	public String editPerson() {
+		Person personToEdit = persons.getRowData();
+		pm.deletePerson(personToEdit);
+		return "addSimple";
+		 }
+
 
 	public String deletePerson() {
 		Person personToDelete = persons.getRowData();
