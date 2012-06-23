@@ -17,16 +17,16 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 
-import com.osp_jsf.domain.Person;
-import com.osp_jsf.service.PersonManager;
+import com.osp_jsf.domain.Employ;
+import com.osp_jsf.service.EmployManager;
 
 @SessionScoped
-@Named("personBean")
-public class PersonFormBean implements Serializable {
+@Named("employBean")
+public class EmployFormBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Person person = new Person();
+	private Employ employ = new Employ();
 	private String text = null;
 	
 	public String getText() {
@@ -37,60 +37,60 @@ public class PersonFormBean implements Serializable {
 		this.text = text;
 	}
 
-	private ListDataModel<Person> persons = new ListDataModel<Person>();
+	private ListDataModel<Employ> employs = new ListDataModel<Employ>();
 	
 	@Inject
-	private PersonManager pm;
+	private EmployManager pm;
 
-	public Person getPerson() {
-		return person;
+	public Employ getEmploy() {
+		return employ;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setEmploy(Employ employ) {
+		this.employ = employ;
 	}
 
-	public ListDataModel<Person> getAllPersons() {
-		persons.setWrappedData(pm.getAllPersons());
-		return persons;
+	public ListDataModel<Employ> getAllEmploys() {
+		employs.setWrappedData(pm.getAllEmploys());
+		return employs;
 	}
 	
-	public ListDataModel<Person> getPersonSearch() {
-		persons.setWrappedData(pm.searchPerson(person));
-		return persons;
+	public ListDataModel<Employ> getEmploySearch() {
+		employs.setWrappedData(pm.searchEmploy(employ));
+		return employs;
 	}
 
 	// Actions
-	public String addPerson() {
-		pm.addPerson(person);
+	public String addEmploy() {
+		pm.addEmploy(employ);
 		return "showDetalis";
 		//return null;
 	}
-	public String showPerson() {
-		return "showPersons";
+	public String showEmploy() {
+		return "showEmploys";
 		//return null;
 	}
 	public String Back() {
-		pm.deletePerson(person);
+		pm.deleteEmploy(employ);
 		return "addSimple";
 		//return null;
 	}
-	public String searchPerson() {
-		person.setPin(text);
-		person.setFirstName(text);
+	public String searchEmploy() {
+		employ.setPin(text);
+		employ.setFirstName(text);
 		return "searchResult";
 		 }
 	
-	public String editPerson() {
-		Person personToEdit = persons.getRowData();
-		pm.deletePerson(personToEdit);
+	public String editEmploy() {
+		Employ employToEdit = employs.getRowData();
+		pm.deleteEmploy(employToEdit);
 		return "addSimple";
 		 }
 
 
-	public String deletePerson() {
-		Person personToDelete = persons.getRowData();
-		pm.deletePerson(personToDelete);
+	public String deleteEmploy() {
+		Employ employToDelete = employs.getRowData();
+		pm.deleteEmploy(employToDelete);
 		return null;
 	}
 
@@ -102,10 +102,10 @@ public class PersonFormBean implements Serializable {
 
 		String pin = (String) value;
 
-		for (Person person : pm.getAllPersons()) {
-			if (person.getPin().equalsIgnoreCase(pin)) {
+		for (Employ employ : pm.getAllEmploys()) {
+			if (employ.getPin().equalsIgnoreCase(pin)) {
 				FacesMessage message = new FacesMessage(
-						"Person with this PIN already exists in database");
+						"Employ with this PIN already exists in database");
 				message.setSeverity(FacesMessage.SEVERITY_ERROR);
 				throw new ValidatorException(message);
 			}

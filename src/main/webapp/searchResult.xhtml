@@ -13,28 +13,28 @@
 	
     <h:form>
     
-     <h:dataTable value="#{personBean.personSearch}" var="item" border="0" cellpadding="0" cellspacing="0" styleClass="tableList">
-        <f:facet name="header">#{msg.personSearchResultLabel}</f:facet>
+     <h:dataTable value="#{employBean.employSearch}" var="item" border="0" cellpadding="0" cellspacing="0" styleClass="tableList">
+        <f:facet name="header">#{msg.employSearchResultLabel}</f:facet>
              
       <h:column>
-        <f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
+        <f:facet name="header">#{msg.employFirstNameLabel}</f:facet>
         #{item.firstName}
       </h:column>
       
       <h:column>
-        <f:facet name="header">#{msg.personPinLabel}</f:facet>
+        <f:facet name="header">#{msg.employPinLabel}</f:facet>
         #{item.pin}
       </h:column>
       
       <h:column>
-        <f:facet name="header">#{msg.personWeightLabel}</f:facet>
+        <f:facet name="header">#{msg.employWeightLabel}</f:facet>
         #{item.weight}
       </h:column>
       
       <h:column>
         <f:facet name="header">#{msg.action}</f:facet>
-        <h:commandLink value="#{msg.actionDelete}" action="#{personBean.deletePerson}"/>
-        <h:commandLink value="#{msg.actionEdit}" action="#{personBean.editPerson}"/>
+        <h:commandLink value="#{msg.actionDelete}" action="#{employBean.deleteEmploy}"/>
+        <h:commandLink value="#{msg.actionEdit}" action="#{employBean.editEmploy}"/>
       </h:column>
       
      </h:dataTable>

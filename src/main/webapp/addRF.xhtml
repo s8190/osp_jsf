@@ -8,21 +8,21 @@
 	xmlns:rich="http://richfaces.org/rich">
 
 	<ui:define name="content">
-		<h:form id="personForm">
+		<h:form id="employForm">
 			<h:panelGrid columns="2">
 			
-				<h:outputText value="#{msg.personFirstNameLabel}" />
-				<h:inputText id="name" value="#{personBean.person.firstName}">
+				<h:outputText value="#{msg.employFirstNameLabel}" />
+				<h:inputText id="name" value="#{employBean.employ.firstName}">
 					<a4j:ajax render="messages" execute="@this" />
 				</h:inputText>
 
-				<h:outputText value="#{msg.personPinLabel}" />
-				<h:inputText id="pin" value="#{personBean.person.pin}" />
+				<h:outputText value="#{msg.employPinLabel}" />
+				<h:inputText id="pin" value="#{employBean.employ.pin}" />
 
 
-				<h:outputText value="#{msg.personDobLabel}" />
+				<h:outputText value="#{msg.employDobLabel}" />
 
-				<rich:calendar value="#{personBean.person.dateOfBirth}"
+				<rich:calendar value="#{employBean.employ.dateOfBirth}"
 					id="calendar" datePattern="dd.MM.yyyy" showApplyButton="#{true}"
 					cellWidth="24px" cellHeight="22px" style="width:200px">
 					<a4j:ajax render="messages" execute="@this" />
@@ -38,17 +38,17 @@
 			<a4j:outputPanel ajaxRendered="true">
 				<h:panelGrid columns="2">
 
-					<h:outputText value="#{msg.personFirstNameLabel}" />
+					<h:outputText value="#{msg.employFirstNameLabel}" />
 					<h:outputText id="nameOutput"
-						value="#{personBean.person.firstName}" />
+						value="#{employBean.employ.firstName}" />
 
-					<h:outputText value="#{msg.personPinLabel}" />
-					<h:outputText id="pinOutput" value="#{personBean.person.pin}" />
+					<h:outputText value="#{msg.employPinLabel}" />
+					<h:outputText id="pinOutput" value="#{employBean.employ.pin}" />
 
 
-					<h:outputText value="#{msg.personDobLabel}" />
+					<h:outputText value="#{msg.employDobLabel}" />
 					<h:outputText id="dobOutput"
-						value="#{personBean.person.dateOfBirth}" />
+						value="#{employBean.employ.dateOfBirth}" />
 
 				</h:panelGrid>
 			</a4j:outputPanel>

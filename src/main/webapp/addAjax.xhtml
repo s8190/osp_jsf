@@ -6,43 +6,43 @@
 	template="/templates/default.xhtml">
 	<ui:define name="content">
 
-		<h:form id="personForm">
+		<h:form id="employForm">
 			<h:panelGrid columns="2">
 
-				<h:outputText value="#{msg.personFirstNameLabel}" />
-				<h:inputText id="firstName" value="#{personBean.person.firstName}"
+				<h:outputText value="#{msg.employFirstNameLabel}" />
+				<h:inputText id="firstName" value="#{employBean.employ.firstName}"
 					required="#{true}" />
 
-				<h:outputText value="#{msg.personPinLabel}" />
-				<h:inputText id="pin" value="#{personBean.person.pin}"
-					validator="#{personBean.uniquePin}" required="#{true}">
+				<h:outputText value="#{msg.employPinLabel}" />
+				<h:inputText id="pin" value="#{employBean.employ.pin}"
+					validator="#{employBean.uniquePin}" required="#{true}">
 					<f:validator validatorId="pinValidator" />
 					<f:ajax execute="@this" render="messages beanState" />
 				</h:inputText>
 
-				<h:outputText value="#{msg.personDobLabel}" />
-				<h:inputText id="dob" value="#{personBean.person.dateOfBirth}">
+				<h:outputText value="#{msg.employDobLabel}" />
+				<h:inputText id="dob" value="#{employBean.employ.dateOfBirth}">
 					<f:convertDateTime type="date" pattern="dd.MM.yyyy" />
 				</h:inputText>
 
-				<h:outputText value="#{msg.personZipCodeLabel}" />
-				<h:inputText id="zipCode" value="#{personBean.person.zipCode}" />
+				<h:outputText value="#{msg.employZipCodeLabel}" />
+				<h:inputText id="zipCode" value="#{employBean.employ.zipCode}" />
 
-				<h:outputText value="#{msg.personWeightLabel}" />
-				<h:inputText id="weight" value="#{personBean.person.weight}">
+				<h:outputText value="#{msg.employWeightLabel}" />
+				<h:inputText id="weight" value="#{employBean.employ.weight}">
 					<f:validateDoubleRange minimum="20.5" maximum="150.5" />
 					<f:ajax execute="@this" render="messages beanState" />
 				</h:inputText>
 
-				<h:outputText value="#{msg.personNumOfChildrenLabel}" />
-				<h:inputText id="noc" value="#{personBean.person.numOfChildren}">
+				<h:outputText value="#{msg.employStazLabel}" />
+				<h:inputText id="noc" value="#{employBean.employ.staz}">
 
 				</h:inputText>
 
 			</h:panelGrid>
 
-			<h:commandButton value="#{msg.personFormOKButton}"
-				action="#{personBean.addPerson}" />
+			<h:commandButton value="#{msg.employFormOKButton}"
+				action="#{employBean.addEmploy}" />
 
 
 			<h:panelGrid>
@@ -51,15 +51,15 @@
 			</h:panelGrid>
 
 			<h:panelGrid id="beanState" columns="2">
-				<h:outputText value="#{msg.personFirstNameLabel}" />
-				<h:outputText id="nameOutput" value="#{personBean.person.firstName}" />
+				<h:outputText value="#{msg.employFirstNameLabel}" />
+				<h:outputText id="nameOutput" value="#{employBean.employ.firstName}" />
 
-				<h:outputText value="#{msg.personPinLabel}" />
-				<h:outputText id="pinOutput" value="#{personBean.person.pin}" />
+				<h:outputText value="#{msg.employPinLabel}" />
+				<h:outputText id="pinOutput" value="#{employBean.employ.pin}" />
 
-				<h:outputText value="#{msg.personDobLabel}" />
+				<h:outputText value="#{msg.employDobLabel}" />
 				<h:outputText id="dobOutput"
-					value="#{personBean.person.dateOfBirth}" />
+					value="#{employBean.employ.dateOfBirth}" />
 			</h:panelGrid>
 
 		</h:form>

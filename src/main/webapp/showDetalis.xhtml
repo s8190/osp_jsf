@@ -9,28 +9,28 @@
 	
     <h:form>
     
-     <h:dataTable value="#{personBean.allPersons}" var="item">
-      <f:facet name="header">#{msg.personCheckLabel}</f:facet>
+     <h:dataTable value="#{employBean.allEmploys}" var="item">
+      <f:facet name="header">#{msg.employCheckLabel}</f:facet>
       
       <h:column>
-        <f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
+        <f:facet name="header">#{msg.employFirstNameLabel}</f:facet>
         #{item.firstName}
       </h:column>
       
       <h:column>
-        <f:facet name="header">#{msg.personPinLabel}</f:facet>
+        <f:facet name="header">#{msg.employPinLabel}</f:facet>
         #{item.pin}
       </h:column>
       
       <h:column>
-        <f:facet name="header">#{msg.personWeightLabel}</f:facet>
+        <f:facet name="header">#{msg.employWeightLabel}</f:facet>
         #{item.weight}
       </h:column>
      </h:dataTable>
-     <h:commandButton value="#{msg.personFormOKButton2}"
-				action="#{personBean.Back}" />              
-	 <h:commandButton value="#{msg.personFormOKButton}"
-				action="#{personBean.showPerson}" />
+     <h:commandButton value="#{msg.employFormOKButton2}"
+				action="#{employBean.Back}" />              
+	 <h:commandButton value="#{msg.employFormOKButton}"
+				action="#{employBean.showEmploy}" />
     </h:form>
       
 	</ui:define>

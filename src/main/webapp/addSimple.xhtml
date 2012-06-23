@@ -5,22 +5,22 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/templates/default.xhtml">
 	<ui:define name="content">
-		<h:form id="personform">
+		<h:form id="employform">
 			<h:panelGrid columns="2">
 
-				<h:outputText value="#{msg.personFirstNameLabel}" />
-				<h:inputText id="name" value="#{personBean.person.firstName}" />
+				<h:outputText value="#{msg.employFirstNameLabel}" />
+				<h:inputText id="name" value="#{employBean.employ.firstName}" />
 
-				<h:outputText value="#{msg.personPinLabel}" />
-				<h:inputText id="yob" value="#{personBean.person.pin}" />
+				<h:outputText value="#{msg.employPinLabel}" />
+				<h:inputText id="yob" value="#{employBean.employ.pin}" />
 				
-				<h:outputText value="#{msg.personWeightLabel}" />
-				<h:inputText id="weight" value="#{personBean.person.weight}" />
+				<h:outputText value="#{msg.employWeightLabel}" />
+				<h:inputText id="weight" value="#{employBean.employ.weight}" />
 						
 			</h:panelGrid>
 
-			<h:commandButton value="#{msg.personFormOKButton}"
-				action="#{personBean.addPerson}" />
+			<h:commandButton value="#{msg.employFormOKButton}"
+				action="#{employBean.addEmploy}" />
 				
 			<h:panelGrid>
 				<h:messages showDetail="#{true}" showSummary="#{false}" />

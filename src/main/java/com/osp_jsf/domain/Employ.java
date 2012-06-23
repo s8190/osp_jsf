@@ -9,7 +9,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-public class Person {
+public class Employ {
 	
 	private String firstName = "unknown";
 	private String zipCode = "";
@@ -17,7 +17,7 @@ public class Person {
 	private Date dateOfBirth = new Date();
 	private double weight;
 	private boolean married;
-	private int numOfChildren;
+	private int staz;
 	
 	@Size(min = 2, max = 20)
 	public String getFirstName() {
@@ -44,11 +44,11 @@ public class Person {
 	}
 	
 	@Min(0)
-	public int getNumOfChildren() {
-		return numOfChildren;
+	public int getStaz() {
+		return staz;
 	}
-	public void setNumOfChildren(int numOfChildren) {
-		this.numOfChildren = numOfChildren;
+	public void setStaz(int staz) {
+		this.staz = staz;
 	}
 	
 	@Past
